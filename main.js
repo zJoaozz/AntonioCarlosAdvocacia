@@ -173,3 +173,14 @@ document.getElementById('lgpdReject').addEventListener('click', () => {
   banner.classList.remove('visible');
   setTimeout(() => banner.classList.add('hidden'), 500);
 });
+
+// ── Slideshow automático da foto (seção Sobre) ──
+const fotoSlides = document.querySelectorAll('.foto-slide');
+if (fotoSlides.length > 1) {
+  let fotoAtual = 0;
+  setInterval(() => {
+    fotoSlides[fotoAtual].classList.remove('active');
+    fotoAtual = (fotoAtual + 1) % fotoSlides.length;
+    fotoSlides[fotoAtual].classList.add('active');
+  }, 5000);
+}

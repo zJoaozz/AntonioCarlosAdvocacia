@@ -112,9 +112,32 @@ nav {
 .btn-primary:hover { background: var(--ouro-light); transform: translateY(-2px); }
 .btn-ghost { background: transparent; color: var(--branco); padding: 1rem 2.4rem; border: 1px solid rgba(255,255,255,0.35); font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: border-color 0.25s, color 0.25s; border-radius: 2px; display: inline-block; }
 .btn-ghost:hover { border-color: var(--ouro); color: var(--ouro-light); }
-.hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; animation: bounce 2s infinite 2s; }
-.hero-scroll span { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-.scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--ouro), transparent); }
+/* fadeUpCentered em vez de fadeUp: os keyframes de fadeUp zeram o transform e
+   anulariam o translateX(-50%) que centraliza este elemento */
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fadeUpCentered 1s 1.2s ease both;
+}
+.scroll-mouse {
+  width: 26px;
+  height: 42px;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  padding-top: 7px;
+}
+.scroll-dot {
+  width: 4px;
+  height: 8px;
+  flex: none;
+  background: var(--ouro-light);
+  border-radius: 2px;
+  animation: scrollDot 1.8s ease-in-out infinite;
+}
 
 /* ── SECTIONS ── */
 section { padding: 6rem 2rem; }
@@ -126,16 +149,56 @@ section { padding: 6rem 2rem; }
 
 /* ── SOBRE ── */
 #sobre { background: var(--off-white); }
-.sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.sobre-grid { display: grid; grid-template-columns: 0.8fr 1.2fr 1fr; gap: 2.5rem; align-items: start; }
+/* z-index:0 cria o contexto de empilhamento que mantém .foto-frame (z-index:-1)
+   acima do fundo de #sobre, e não atrás dele */
+.sobre-foto { position: relative; z-index: 0; }
+.foto-advogado {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(15%) contrast(1.05);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  display: block;
+}
+.foto-slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+}
+.foto-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+.foto-slide.active {
+  opacity: 1;
+}
+.foto-frame {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: -12px;
+  bottom: -12px;
+  border: 1.5px solid var(--ouro);
+  z-index: -1;
+  pointer-events: none;
+}
 .sobre-text p { font-size: 1rem; line-height: 1.8; color: var(--cinza-suave); margin-bottom: 1.2rem; }
 .sobre-text p strong { color: var(--cinza-texto); }
 .sobre-card { background: var(--verde); padding: 3rem; position: relative; }
 .sobre-card::before { content: ''; position: absolute; top: -6px; left: -6px; right: 6px; bottom: 6px; border: 1px solid var(--ouro); pointer-events: none; }
 .sobre-nome { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 600; color: var(--branco); margin-bottom: 0.3rem; }
 .sobre-oab { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ouro-light); margin-bottom: 2rem; }
-.sobre-stat { border-top: 1px solid rgba(255,255,255,0.12); padding: 1rem 0; display: flex; justify-content: space-between; align-items: center; }
-.sobre-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.55); }
-.sobre-stat-val { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--ouro-light); font-weight: 600; }
+.sobre-stat { border-top: 1px solid rgba(255,255,255,0.12); padding: 1rem 0; display: flex; flex-direction: column; gap: 0.3rem; }
+.sobre-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.55); }
+.sobre-stat-val { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--ouro-light); font-weight: 600; text-align: left; }
 .count-val { display: inline; }
 
 /* ── ÁREAS ── */
@@ -248,7 +311,8 @@ footer { background: #111; padding: 2rem; text-align: center; }
 /* ── ANIMATIONS ── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes expandWidth { from { width: 0; } to { width: 80px; } }
-@keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-8px); } }
+@keyframes fadeUpCentered { from { opacity: 0; transform: translateX(-50%) translateY(24px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+@keyframes scrollDot { 0% { opacity: 0; transform: translateY(0); } 15% { opacity: 1; } 65% { opacity: 1; transform: translateY(14px); } 100% { opacity: 0; transform: translateY(16px); } }
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -259,6 +323,9 @@ footer { background: #111; padding: 2rem; text-align: center; }
   .nav-hamburger { display: flex; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
   .nav-drawer { display: flex; }
   .sobre-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  /* width:100% é obrigatório aqui: com margin auto, o grid item vira shrink-to-fit,
+     e a largura percentual do .foto-slideshow colapsa para 0 */
+  .sobre-foto { width: 100%; max-width: 320px; margin: 0 auto; }
   .areas-grid { grid-template-columns: 1fr; }
   .dif-grid { grid-template-columns: 1fr 1fr; }
   .contato-layout { grid-template-columns: 1fr; gap: 2.5rem; }
