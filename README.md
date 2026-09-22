@@ -10,7 +10,7 @@
 
 ## 📋 Sobre o Projeto
 
-O site institucional de **Antonio Carlos da Costa** (OAB/PI 1.977) apresenta o escritório, suas áreas de atuação e diferenciais, com foco em conversão via WhatsApp. Desenvolvido com identidade visual premium em verde escuro e dourado, tipografia serifada elegante e microinterações refinadas.
+O site institucional de **Antonio Carlos Costa** (OAB/PI 1.977) apresenta o escritório, suas áreas de atuação e diferenciais, com foco em conversão via WhatsApp. Desenvolvido com identidade visual premium em verde escuro e dourado, tipografia serifada elegante e microinterações refinadas.
 
 ---
 
@@ -105,7 +105,7 @@ Basta seguir o fluxo de login e confirmação — o site fica no ar em menos de 
 
 ## 📞 Contato do Escritório
 
-- 📞 **Telefone/WhatsApp:** [(86) 9 9435-9281](https://wa.me/5586994359281)
+- 📞 **Telefone/WhatsApp:** [(86) 9451-5525](https://wa.me/5586994515525)
 - ✉️ **E-mail:** dacostaesilvaantoniocarlos@gmail.com
 - 📸 **Instagram:** [@dr_antonio_carlos_costa](https://instagram.com/dr_antonio_carlos_costa)
 - 📍 **Endereço:** Rua Oscar Gil Castelo Branco, 2977 — Sala 102, São Cristóvão, Teresina/PI
