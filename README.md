@@ -70,8 +70,8 @@ antonio_carlos_costa/
 
 ### 1. Clone o repositório
 ```bash
-git clone https://github.com/TriCod3x/antonio-carlos-costa.git
-cd antonio-carlos-costa
+git clone https://github.com/zJoaozz/AntonioCarlosAdvocacia.git
+cd AntonioCarlosAdvocacia
 ```
 
 ### 2. Abra com um servidor local
