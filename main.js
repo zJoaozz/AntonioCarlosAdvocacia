@@ -155,21 +155,18 @@ document.querySelectorAll('.drawer-link').forEach(link => {
   });
 }());
 
-// ── LGPD banner ──
+// ── LGPD banner (apenas informativo) ──
 const banner = document.getElementById('lgpdBanner');
 const LGPD_KEY = 'acc_lgpd_v1';
-if (!localStorage.getItem(LGPD_KEY)) {
+let lgpdVisto = false;
+try { lgpdVisto = !!localStorage.getItem(LGPD_KEY); } catch (e) {}  // 'accepted' ou 'rejected' (legado) = já visto
+if (!lgpdVisto) {
   setTimeout(() => banner.classList.add('visible'), 800);
 } else {
   banner.classList.add('hidden');
 }
 document.getElementById('lgpdAccept').addEventListener('click', () => {
-  localStorage.setItem(LGPD_KEY, 'accepted');
-  banner.classList.remove('visible');
-  setTimeout(() => banner.classList.add('hidden'), 500);
-});
-document.getElementById('lgpdReject').addEventListener('click', () => {
-  localStorage.setItem(LGPD_KEY, 'rejected');
+  try { localStorage.setItem(LGPD_KEY, 'accepted'); } catch (e) {}
   banner.classList.remove('visible');
   setTimeout(() => banner.classList.add('hidden'), 500);
 });

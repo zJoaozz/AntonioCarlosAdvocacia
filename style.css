@@ -285,7 +285,7 @@ section { padding: 6rem 2rem; }
 .lgpd-banner.hidden { display: none; }
 .lgpd-text { font-size: 0.83rem; color: rgba(255,255,255,0.7); line-height: 1.6; flex: 1; min-width: 240px; }
 .lgpd-text a { color: var(--ouro-light); text-decoration: underline; }
-.lgpd-btns { display: flex; gap: 0.8rem; flex-shrink: 0; flex-wrap: wrap; }
+.lgpd-btns { display: flex; flex-shrink: 0; }
 .lgpd-accept {
   background: var(--ouro); color: var(--verde);
   border: none; padding: 0.6rem 1.6rem; font-size: 0.78rem; font-weight: 600;
@@ -293,14 +293,6 @@ section { padding: 6rem 2rem; }
   border-radius: 2px; font-family: 'Inter', sans-serif; transition: background 0.2s;
 }
 .lgpd-accept:hover { background: var(--ouro-light); }
-.lgpd-reject {
-  background: transparent; color: rgba(255,255,255,0.5);
-  border: 1px solid rgba(255,255,255,0.2); padding: 0.6rem 1.2rem;
-  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
-  text-transform: uppercase; cursor: pointer; border-radius: 2px;
-  font-family: 'Inter', sans-serif; transition: border-color 0.2s, color 0.2s;
-}
-.lgpd-reject:hover { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.75); }
 
 /* ── FOOTER ── */
 footer { background: #111; padding: 2rem; text-align: center; }
@@ -328,7 +320,8 @@ footer { background: #111; padding: 2rem; text-align: center; }
   .areas-grid { grid-template-columns: 1fr; }
   .dif-grid { grid-template-columns: 1fr 1fr; }
   .contato-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-  .lgpd-banner { padding: 1.2rem 1.5rem; }
+  .lgpd-banner { padding: 1.2rem 1.5rem; gap: 1rem; }
+  .lgpd-btns, .lgpd-accept { width: 100%; }
 }
 @media (max-width: 600px) {
   .dif-grid { grid-template-columns: 1fr; }

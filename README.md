@@ -23,7 +23,7 @@ O site institucional de **Antonio Carlos Costa** (OAB/PI 1.977) apresenta o escr
 - 6 cards de Diferenciais do escritório
 - Mapa do Google integrado com a localização do escritório
 - Botão flutuante de WhatsApp com pulse animation
-- Banner de consentimento LGPD
+- Banner informativo de privacidade (LGPD) e página de Política de Privacidade
 - Menu hambúrguer para mobile
 - Cursor customizado dourado (desktop)
 - Animações de *reveal* ao rolar a página
@@ -49,11 +49,16 @@ O site institucional de **Antonio Carlos Costa** (OAB/PI 1.977) apresenta o escr
 
 ```
 antonio_carlos_costa/
-├── index.html              ← Estrutura da página
+├── index.html               ← Estrutura da página
+├── privacidade.html         ← Política de Privacidade (LGPD)
 ├── style.css                ← Estilos e responsividade
-├── main.js                  ← Interações (reveal, counters, menu, LGPD, cursor)
+├── main.js                  ← Interações (reveal, counters, menu, aviso LGPD, cursor)
 ├── logo-transparente.png    ← Brasão ACC (fundo transparente)
-└── vercel.json               ← Configuração de deploy
+├── og-image.png             ← Imagem de compartilhamento (1200x630)
+├── logo.jpg                 ← Logo (JPG)
+├── foto-antonio-carlos.jpeg ← Foto do advogado (slideshow)
+├── foto1.jpg                ← Foto do advogado (slideshow)
+└── foto2.jpg                ← Foto do advogado (slideshow)
 ```
 
 ---
@@ -88,6 +93,8 @@ npx vercel
 ```
 
 Basta seguir o fluxo de login e confirmação — o site fica no ar em menos de um minuto.
+
+Domínio de produção: **https://antoniocarlosadvocacia.com**
 
 ---
 
